@@ -1,5 +1,5 @@
 import Sidebar from "./Sidebar.jsx";
-import Navbar from "./Navbar.jsx";
+import Navbar from "./NavBar.jsx";
 
 const Layout = ({ children, showSidebar = false }) => {
   return (
