@@ -20,7 +20,10 @@ export const getAuthUser = async () => {
         const response = await axiosInstance.get("/auth/me");
         return response.data;
     } catch (error) {
-        console.error("Error fetching authenticated user:", error);
+        // A 401 is expected when the user is simply not logged in yet
+        if (error.response?.status !== 401) {
+            console.error("Error fetching authenticated user:", error);
+        }
         return null;
     }
 }

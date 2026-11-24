@@ -6,6 +6,8 @@ const useAuthUser = () => {
     queryKey: ["authUser"],
     queryFn: getAuthUser,
     retry: false, //don't retry on failure (e.g. if user is not authenticated)
+    refetchOnWindowFocus: false,
+    staleTime: 5 * 60 * 1000,
   });
 
   return {isLoading: authUser.isLoading, authUser: authUser.data?.user};
